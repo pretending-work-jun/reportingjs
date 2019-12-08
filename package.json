@@ -1,0 +1,28 @@
+{
+  "name": "reportingjs",
+  "version": "1.0.0",
+  "description": "Simple ways to export data",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir lib",
+    "lint": "eslint --fix src/*.js",
+    "test": "mocha --require @babel/register"
+  },
+  "repository": "https://github.com/jjkoh95/reportingjs",
+  "author": "Jun <jjkoh95@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.5",
+    "@babel/register": "^7.7.4",
+    "chai": "^4.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.2"
+  }
+}
