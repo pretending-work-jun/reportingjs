@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai';
-import { parser } from '../src';
+import { parser } from '../lib';
 
 describe('Test CSVToJSON function', () => {
   it('Expect to convert to a valid JSON', () => {
