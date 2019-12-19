@@ -2,7 +2,7 @@
   "name": "reportingjs",
   "version": "1.0.0",
   "description": "Simple ways to export data",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir lib",
