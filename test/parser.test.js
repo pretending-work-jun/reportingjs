@@ -46,3 +46,39 @@ describe('Test functions to exchange between csv and string format', () => {
     expect(revert).to.deep.equal(CSVContent);
   });
 });
+
+describe('Test renameJSONKeys function', () => {
+  it('Expect to rename JSON keys', () => {
+    const JSONContent = [
+      { key1: 0, key2: 1, key3: 2 },
+      { key1: 3, key2: 4, key3: 5 },
+      { key1: 6, key2: 7, key3: 8 },
+    ];
+
+    const renameObj = { key1: 'newKey1', key2: 'newKey2', key3: 'newKey3' };
+    const newJSONContent = parser.renameJSONKeys(JSONContent, renameObj);
+
+    expect(newJSONContent[0]).to.have.property('newKey1');
+    expect(newJSONContent[0]).to.have.property('newKey2');
+    expect(newJSONContent[0]).to.have.property('newKey3');
+    expect(newJSONContent[0]).not.to.have.property('key1');
+    expect(newJSONContent[0]).not.to.have.property('key2');
+    expect(newJSONContent[0]).not.to.have.property('key3');
+  });
+});
+
+describe('Test getJSONByKeys function', () => {
+  it('Expect to get only JSON with keys', () => {
+    const JSONContent = [
+      { key1: 0, key2: 1, key3: 2 },
+      { key1: 3, key2: 4, key3: 5 },
+      { key1: 6, key2: 7, key3: 8 },
+    ];
+
+    const extractedJSON = parser.getJSONByKeys(JSONContent, ['key1', 'key2']);
+
+    expect(extractedJSON[0]).to.have.property('key1');
+    expect(extractedJSON[0]).to.have.property('key2');
+    expect(extractedJSON[0]).not.to.have.property('key3');
+  });
+});

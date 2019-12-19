@@ -40,9 +40,44 @@ const stringifyCSV = (data) => data.map((row) => row.join(',')).join('\n');
  */
 const readCSV = (data) => data.split('\n').map(row => row.split(',').map(typeParser.JSONParse));
 
+/**
+ * Rename object keys
+ * @param {object[]} obj
+ * @param {object} newValuePairs
+ * @return {object[]}
+ */
+const renameJSONKeys = (obj, newValuePairs) => {
+  return obj.map((o) => {
+    const newObject = {};
+    Object.entries(o).forEach(([k, v]) => {
+      const newKey = newValuePairs[k] || k;
+      newObject[newKey] = v;
+    });
+    return newObject;
+  });
+};
+
+/**
+ * Return JSON object with specified keys
+ * @param {object[]} obj
+ * @param {string[]} keys
+ * @return {object[]}
+ */
+const getJSONByKeys = (obj, keys) => {
+  return obj.map((o) => {
+    const newObject = {};
+    keys.forEach((k) => {
+      newObject[k] = o[k];
+    });
+    return newObject;
+  });
+};
+
 export default {
   CSVToJSON,
   JSONToCSV,
   stringifyCSV,
   readCSV,
+  renameJSONKeys,
+  getJSONByKeys,
 };
