@@ -1,5 +1,6 @@
-import parser from './parser';
 // import xlsx from 'xlsx';
+import { saveAs } from 'file-saver';
+import parser from './parser';
 
 /**
  * Export data as CSV format
@@ -14,6 +15,15 @@ const createCSVExporterElement = (data, filename='data.csv') => {
   hiddenElement.target = '_blank';
   hiddenElement.download = filename;
   return hiddenElement; // hiddenElement.click() to trigger save
+};
+
+/**
+ * Export data as CSV format through blob
+ * @param {any[][]} data
+ * @param {string} [filename=data.csv] filename
+ */
+const exportCSV = (data, filename='data.csv') => {
+  saveAs(new Blob([data], { type: 'data:text/csv;charset=utf8'}), filename);
 };
 
 /**
@@ -32,12 +42,23 @@ const createJSONExporterElement = (data, filename='data.json') => {
 };
 
 /**
+ * Export data as JSON format through blob
+ * @param {any[][]} data
+ * @param {string} filename
+ */
+const exportJSON = (data, filename='data.jsosn') => {
+  saveAs(new Blob([data], { type: 'data:text/json;charset=utf8' }), filename);
+};
+
+/**
  * The easiest way to export as pdf -- window.print() to save as pdf
  */
 const exportPagePDF = () => window.print();
 
 export default {
   createCSVExporterElement,
+  exportCSV,
   createJSONExporterElement,
+  exportJSON,
   exportPagePDF,
 };
