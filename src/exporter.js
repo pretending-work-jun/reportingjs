@@ -7,12 +7,12 @@ import parser from './parser';
  * @param {string} [filename=data.csv] filename
  * @return {HTMLElement}
  */
-const createCSVExporterElement = (data, filename) => {
+const createCSVExporterElement = (data, filename='data.csv') => {
   const content = parser.stringifyCSV(data);
   const hiddenElement = document.createElement('a');
   hiddenElement.setAttribute('href', `data:text/csv;charset=utf8,${encodeURI(content)}`);
   hiddenElement.target = '_blank';
-  hiddenElement.download = filename || 'data.csv';
+  hiddenElement.download = filename;
   return hiddenElement; // hiddenElement.click() to trigger save
 };
 
@@ -22,12 +22,12 @@ const createCSVExporterElement = (data, filename) => {
  * @param {string} [filename=data.json] filename
  * @return {HTMLElement}
  */
-const createJSONExporterElement = (data, filename) => {
+const createJSONExporterElement = (data, filename='data.json') => {
   const content = JSON.stringify(data);
   const hiddenElement = document.createElement('a');
   hiddenElement.setAttribute('href', `data:text/csv;charset=utf8${encodeURI(content)}`);
   hiddenElement.target = '_blank';
-  hiddenElement.download = filename || 'data.json';
+  hiddenElement.download = filename;
   return hiddenElement; // hiddenElement.click() to trigger save
 };
 
