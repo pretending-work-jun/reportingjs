@@ -1,5 +1,5 @@
 import parser from './parser';
-import xlsx from 'xlsx';
+// import xlsx from 'xlsx';
 
 /**
  * Export data as CSV format
