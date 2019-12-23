@@ -1,10 +1,9 @@
 {
   "name": "reportingjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple ways to export data",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir lib",
     "lint": "eslint --fix src/*.js",
     "test": "mocha --require @babel/register"
