@@ -4,12 +4,19 @@
  * @return {any}
  */
 const JSONParse = (word) => {
+
+  if (typeof word != '')
   try {
     return JSON.parse(word);
   } catch (err) {
-    return JSON.stringify(word);
+    return word;
   }
 };
+
+/**
+ * doNothing()
+ */
+const doNothing = () => {};
 
 export default {
   JSONParse,
