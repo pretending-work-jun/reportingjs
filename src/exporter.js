@@ -19,7 +19,7 @@ const createCSVExporterElement = (data, filename='data.csv') => {
 
 /**
  * Export data as CSV format through blob
- * @param {any[][]} data
+ * @param {string|ArrayBuffer} data
  * @param {string} [filename=data.csv] filename
  */
 const exportCSV = (data, filename='data.csv') => {
@@ -43,7 +43,7 @@ const createJSONExporterElement = (data, filename='data.json') => {
 
 /**
  * Export data as JSON format through blob
- * @param {any[][]} data
+ * @param {string|ArrayBuffer} data
  * @param {string} filename
  */
 const exportJSON = (data, filename='data.jsosn') => {
