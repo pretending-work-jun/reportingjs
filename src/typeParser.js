@@ -7,7 +7,7 @@ const JSONParse = (word) => {
   try {
     return JSON.parse(word);
   } catch (err) {
-    return JSON.stringify(word);
+    return word;
   }
 };
 
